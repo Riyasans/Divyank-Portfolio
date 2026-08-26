@@ -1,0 +1,830 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #0b0b12;
+    color: #eee;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ================================
+   COLORS
+================================ */
+
+:root {
+    --gold: #d8b56a;
+    --gold-light: #f1d99b;
+    --dark: #0b0b12;
+    --dark-2: #12121c;
+    --card: #151521;
+    --text: #eeeeee;
+    --muted: #a8a8b3;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 8, 14, 0.85);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(216, 181, 106, 0.15);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.logo span {
+    margin-right: 8px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    font-size: 13px;
+    color: #ddd;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(117, 88, 30, 0.22),
+        transparent 40%),
+        linear-gradient(
+        rgba(5,5,10,0.65),
+        rgba(5,5,10,0.95)
+        ),
+        url("images/astrology.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(5,5,10,0.75) 75%
+        );
+}
+
+.hero-content {
+    position: relative;
+    max-width: 850px;
+    padding: 120px 20px 60px;
+}
+
+.small-title,
+.section-label {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 7vw, 85px);
+    line-height: 1;
+    margin: 25px 0;
+    font-weight: 500;
+}
+
+.hero h1 span,
+h2 span {
+    color: var(--gold);
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: auto;
+    color: #c0c0c8;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    border-radius: 2px;
+
+    font-size: 13px;
+    letter-spacing: 0.5px;
+
+    transition: 0.3s;
+}
+
+.primary {
+    background: var(--gold);
+    color: #111;
+}
+
+.primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.secondary {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.secondary:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 25px;
+    color: var(--gold);
+    font-size: 24px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+}
+
+
+/* ================================
+   COMMON SECTION
+================================ */
+
+.section {
+    padding: 100px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.section-heading h2,
+.about-content h2,
+.why-content h2,
+.contact-info h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 50px;
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    background: var(--dark-2);
+}
+
+.image-frame {
+    position: relative;
+    max-width: 450px;
+    margin: auto;
+}
+
+.image-frame::after {
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--gold);
+
+    z-index: 0;
+}
+
+.image-frame img {
+    position: relative;
+    z-index: 1;
+
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.about-content > p:not(.section-label) {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.about-points {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.about-points div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-points strong {
+    color: var(--gold);
+}
+
+
+/* ================================
+   STATS
+================================ */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 55px 7%;
+
+    background: #0a0a0f;
+
+    border-top: 1px solid rgba(216,181,106,0.12);
+    border-bottom: 1px solid rgba(216,181,106,0.12);
+}
+
+.stat {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--gold);
+    font-size: 42px;
+}
+
+.stat p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* ================================
+   SERVICES
+================================ */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--card);
+
+    padding: 35px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    transition: 0.35s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(216,181,106,0.5);
+}
+
+.service-icon {
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.service-card a {
+    color: var(--gold);
+    font-size: 13px;
+}
+
+
+/* ================================
+   WHY
+================================ */
+
+.why-section {
+    padding: 110px 7%;
+
+    background:
+        linear-gradient(
+        rgba(8,8,15,0.9),
+        rgba(8,8,15,0.95)
+        ),
+        url("images/astrology.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.why-content {
+    max-width: 700px;
+}
+
+.why-content > p:not(.section-label) {
+    color: var(--muted);
+}
+
+.why-list {
+    margin-top: 35px;
+}
+
+.why-list div {
+    display: flex;
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.why-list span {
+    color: var(--gold);
+}
+
+.why-list p {
+    color: #ddd;
+}
+
+
+/* ================================
+   COURSES
+================================ */
+
+.courses {
+    background: var(--dark-2);
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    padding: 40px;
+
+    background: #0f0f17;
+
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.course-card.featured {
+    border-color: var(--gold);
+    transform: translateY(-10px);
+}
+
+.course-tag {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.course-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    margin: 18px 0 10px;
+}
+
+.course-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.course-btn {
+    display: inline-block;
+    padding: 10px 20px;
+
+    border: 1px solid var(--gold);
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   TESTIMONIALS
+================================ */
+
+.testimonial-container {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.testimonial {
+    display: none;
+    animation: fade 0.5s ease;
+}
+
+.testimonial.active {
+    display: block;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stars {
+    color: var(--gold);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    color: #ddd;
+}
+
+.testimonial h4 {
+    color: var(--gold);
+    margin-top: 25px;
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+
+.contact {
+    background: var(--dark-2);
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.contact-info > p:not(.section-label) {
+    color: var(--muted);
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-details div {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.contact-details strong {
+    color: var(--gold);
+}
+
+.contact-details span {
+    color: #ccc;
+}
+
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #0d0d15;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--gold);
+}
+
+textarea {
+    resize: vertical;
+}
+
+form button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 55px 20px;
+    text-align: center;
+
+    background: #07070b;
+
+    border-top: 1px solid rgba(216,181,106,0.15);
+}
+
+.footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+footer > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 10px 0 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    font-size: 13px;
+    color: #ccc;
+}
+
+.social-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    margin-top: 30px !important;
+    font-size: 11px !important;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #0b0b12;
+
+        border-bottom: 1px solid rgba(216,181,106,0.2);
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 15px 7%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .about,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid,
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 75px 5%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .why-content h2,
+    .contact-info h2 {
+        font-size: 40px;
+    }
+
+    .service-grid,
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card.featured {
+        transform: none;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 5%;
+    }
+
+    .stat {
+        border-right: none;
+    }
+
+    .stat h3 {
+        font-size: 34px;
+    }
+
+    .testimonial p {
+        font-size: 23px;
+    }
+
+    .contact-container {
+        gap: 45px;
+    }
+
+}
